@@ -24,7 +24,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ github.token }}
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
@@ -32,5 +32,3 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ghcr.io/flabatut/certbot-dns-powerdns:latest
-          # tags: ${{ steps.META_ID.outputs.tags }}
-          # labels: ${{ steps.META_ID.outputs.labels }}
